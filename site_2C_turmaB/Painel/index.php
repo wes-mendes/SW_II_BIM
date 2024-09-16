@@ -1,15 +1,32 @@
 <?php
+    session_start();
+    if((!isset($_SESSION['id']) == true) and (!isset($_SESSION['nome']) == true) and (!isset($_SESSION['email']) == true)){
+        unset($_SESSION['id']);
+        unset($_SESSION['nome']);
+        unset($_SESSION['email']);
+        header('Location: ../index.html');
+    }
+
+
     include 'conecta.php';
     include 'menu.php';
 ?>
+
+
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Tabela</h1>
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">
+                                <a class="btn btn-success" href="insere_cliente.php">INSERIR NOVO CLIENTE</a>
+                            </li>
+                        </ol>                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Tabela de Clientes
+                                DataTable Example
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -19,8 +36,7 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>
-
+                                            <th>OPÇÕES</th>                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -29,11 +45,10 @@
                                             <th>NOME</th>
                                             <th>E-MAIL</th>
                                             <th>TELEFONE</th>
-                                            <th>OPÇÕES</th>
+                                            <th>OPÇÕES</th> 
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
                                     <?php
                                         $sql = "SELECT * FROM clientes";
                                         $consulta = $conexao->query($sql);
@@ -44,13 +59,14 @@
                                             echo "<td>".$dados['email_cliente']."</td>";
                                             echo "<td>".$dados['telefone']."</td>";
                                             echo "<td>
-                                                <a class= 'btn btn-info' href='atualiza_cliente.php'>ATUALIZAR</a>
-                                                <a class= 'btn btn-danger' href=''>APAGAR</a>
+                                                <a class='btn btn-info' href='atualiza_cliente.php?id=".$dados['id_cliente']."'>ATUALIZAR</a>
+                                                <a class='btn btn-danger' href=''>APAGAR</a>
                                             </td>";
                                             echo "</tr>";
                                         }
                                     ?>
-
+                                        
+                                        
                                     </tbody>
                                 </table>
                             </div>
