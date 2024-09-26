@@ -6,7 +6,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">INSERIR NOVO CLIENTE</h1>
+                        <h1 class="mt-4">INSERIR UM CLIENTE</h1>
                                                
                         <div class="card mb-4">
                             <form>
@@ -30,7 +30,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                            <div class="text-muted">Copyright &copy; Your Website 2024</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
