@@ -1,35 +1,28 @@
 <?php
     include 'conecta.php';
+
     include 'menu.php';
-
-    $id = $_GET['id'];
-
-    $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
-    $consulta = $conexao->query($sql);
-    $dados = $consulta->fetch_assoc();
-
-    
-
 ?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">ATUALIZAR CLIENTE</h1>                                               
+                        <h1 class="mt-4">ATUALIZAR CLIENTE</h1>
+                                               
                         <div class="card mb-4">
-                            <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
+                            <form>
                                 <div class="mb-3">
                                     <label class="form-label">Nome</label>
-                                    <input name="nome_novo" type="text" class="form-control" value="<?php echo $dados['nome_cliente']; ?>">                                    
+                                    <input type="text" class="form-control">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input name="email_novo" type="email" class="form-control" value="<?php echo $dados['email_cliente']; ?>">                                    
+                                    <input type="email" class="form-control">                                    
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Telefone</label>
-                                    <input name="telefone_novo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">                                    
+                                    <input type="text" class="form-control">                                    
                                 </div>                                
-                                <button type="submit" class="btn btn-primary">ATUALIZAR</button>
+                                <button type="submit" class="btn btn-primary">CADASTRAR</button>
                             </form>
                         </div>
                     </div>
